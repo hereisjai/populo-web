@@ -1,0 +1,61 @@
+{
+  "name": "populo-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./button": {
+      "import": "./dist/components/button.mjs",
+      "types": "./dist/types/components/button.d.ts"
+    },
+    "./link": {
+      "import": "./dist/components/link.mjs",
+      "types": "./dist/types/components/link.d.ts"
+    },
+    "./theme-provider": {
+      "import": "./dist/components/theme.mjs",
+      "types": "./dist/types/context/theme-provider.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly --declaration --outDir dist/types &&  webpack",
+    "dev": "vite",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint .",
+    "clean": "rm -rf dist",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "populo-web": "file:",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/styled-components": "^5.1.34",
+    "@vitejs/plugin-react": "^4.3.4",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "globals": "^15.15.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
